@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MauiApp2.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+
+            <!-- Заголовок -->
+            <Label Text="Select XML File:"
+                   SemanticProperties.HeadingLevel="Level1"
+                   FontSize="32" HorizontalOptions="Center" 
+                   TextColor="RoyalBlue" />
+
+            <!-- Кнопка вибору XML файлу -->
+            <Button Text="Choose XML File"
+                    x:Name="xmlFileButton"
+                    Clicked="OnChooseXmlFileClicked"
+                    HorizontalOptions="Center"
+                    TextColor="White" 
+                    BackgroundColor="MediumPurple" />
+
+            <!-- Стратегія парсингу -->
+            <Label Text="Choose Parsing Strategy:"
+                   FontSize="20" HorizontalOptions="Center" 
+                   TextColor="DarkGreen" />
+
+            <Picker x:Name="parsingStrategyPicker"
+        SelectedIndexChanged="OnStrategyChanged"
+        HorizontalOptions="Center"
+        TextColor="SlateGray">
+            </Picker>
+            <!-- Фільтри -->
+            <Label Text="Filter By:"
+                   FontSize="20" HorizontalOptions="Center"
+                   TextColor="DarkRed" />
+
+            <Entry x:Name="facultyEntry" Placeholder="Enter Faculty" TextColor="Black" />
+            <Entry x:Name="departmentEntry" Placeholder="Enter Department" TextColor="Black" />
+            <Entry x:Name="disciplineEntry" Placeholder="Enter Discipline" TextColor="Black" />
+            <Entry x:Name="nameEntry" Placeholder="Enter Name" TextColor="Black" />
+            <Entry x:Name="gradeEntry" Placeholder="Enter Grade" Keyboard="Numeric" TextColor="Black" />
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <!-- Кнопка застосування фільтрів -->
+                <Button Text="Apply Filters"
+                        Clicked="OnApplyFiltersClicked"
+                        TextColor="White" 
+                        BackgroundColor="DarkSlateBlue" />
+
+                <!-- Кнопка очищення фільтрів -->
+                <Button Text="Clear Filters"
+                        Clicked="OnClearFiltersClicked"
+                        TextColor="White" 
+                        BackgroundColor="Crimson" />
+            </HorizontalStackLayout>
+
+
+            <!-- Кнопка трансформації XML -->
+            <Button Text="Transform XML"
+                    Clicked="OnTransformClicked"
+                    HorizontalOptions="Center"
+                    TextColor="White" 
+                    BackgroundColor="RoyalBlue" />
+
+            <!-- Текстові результати -->
+            <Label x:Name="resultLabel" Text="Results will appear here" FontSize="18" />
+
+            <CollectionView x:Name="studentsCollectionView" IsVisible="False">
+                <CollectionView.Header>
+                    <Grid Padding="5" ColumnDefinitions="*,*,*,*,*" BackgroundColor="LightGray">
+                        <Label Text="Name" FontAttributes="Bold" />
+                        <Label Text="Faculty" FontAttributes="Bold" Grid.Column="1" />
+                        <Label Text="Department" FontAttributes="Bold" Grid.Column="2" />
+                        <Label Text="Discipline" FontAttributes="Bold" Grid.Column="3" />
+                        <Label Text="Grade" FontAttributes="Bold" Grid.Column="4" />
+                    </Grid>
+                </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5" ColumnDefinitions="*,*,*,*,*">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Faculty}" Grid.Column="1" />
+                            <Label Text="{Binding Department}" Grid.Column="2" />
+                            <Label Text="{Binding Discipline}" Grid.Column="3" />
+                            <Label Text="{Binding Grade}" Grid.Column="4" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

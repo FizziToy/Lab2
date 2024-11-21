@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<university>
+	<faculty name="Факультет комп'ютерних наук">
+		<department name="ТТП">
+			<discipline name="Математична логіка">
+				<student name="Ступак Катерина" grade="78"/>
+				<student name="Буряк Юліана" grade="80"/>
+				<student name="Савченко Олександра" grade="81"/>
+			</discipline>
+			<discipline name="ООП">
+				<student name="Ступак Катерина" grade="85"/>
+				<student name="Буряк Юліана" grade="82"/>
+				<student name="Савченко Олександра" grade="83"/>
+			</discipline>
+		</department>
+			<department name="ТК">
+			<discipline name="Математичний аналіз">
+				<student name="Ступак Катерина" grade="88"/>
+				<student name="Буряк Юліана" grade="90"/>
+				<student name="Савченко Олександра" grade="86"/>
+			</discipline>
+			<discipline name="Алгебра та геометрія">
+				<student name="Ступак Катерина" grade="92"/>
+				<student name="Буряк Юліана" grade="95"/>
+				<student name="Савченко Олександра" grade="91"/>
+			</discipline>
+		</department>
+	</faculty>
+</university>
