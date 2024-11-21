@@ -192,7 +192,7 @@ namespace MauiApp2
         private bool IsValidText(string input)
         {
             if (string.IsNullOrWhiteSpace(input)) return true; 
-            var regex = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z\s]+$");
+            var regex = new System.Text.RegularExpressions.Regex(@"^[a-zA-Zа-яА-ЯїієЇІЄ\s]+$"); 
             return regex.IsMatch(input);
         }
     }
